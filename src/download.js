@@ -196,7 +196,7 @@ async function link ({ depBin, version }) {
   }
 
   if (!fs.existsSync(depBin)) {
-    throw new Error('ipfs binary not found. maybe ipfs-cluster-follow did not install correctly?')
+    throw new Error('ipfs-cluster-follow binary not found. maybe ipfs-cluster-follow did not install correctly?')
   }
 
   if (fs.existsSync(localBin)) {
