@@ -12,4 +12,4 @@ package-lock.json
 
 # Where the binaries go
 go-ipfs
-bin/ipfs-cluster-follow
+bin/ipfs-cluster-follow.exe
