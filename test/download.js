@@ -12,8 +12,8 @@ test('Ensure ipfs gets downloaded (current version and platform)', async (t) => 
   const installPath = await download()
   const stats = await fs.stat(installPath)
 
-  t.ok(stats, 'go-ipfs was downloaded')
-  t.ok(installPath, detectLocation(), 'go-ipfs binary was detected')
+  t.ok(stats, 'ipfs-cluster-follow was downloaded')
+  t.ok(installPath, detectLocation(), 'ipfs-cluster-follow binary was detected')
 
   t.end()
 })

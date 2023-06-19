@@ -1,7 +1,7 @@
 {
-  "name": "go-ipfs",
+  "name": "go-ipfs-cluster-follow",
   "version": "0.21.0-rc2",
-  "description": "Install the latest go-ipfs binary",
+  "description": "Install the latest go-ipfs-cluster-follow binary",
   "main": "src/index.js",
   "scripts": {
     "postinstall": "node src/post-install.js",

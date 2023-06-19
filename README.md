@@ -20,21 +20,21 @@ Install the latest [Kubo](https://github.com/ipfs/kubo/) (go-ipfs) binary:
 
 ```sh
 # Install globally
-> npm install -g go-ipfs
-> ipfs version
-ipfs version v0.7.0
+> npm install -g ipfs-cluster-follow
+> ipfs-cluster-follow
+ipfs-cluster-follow version v0.7.0
 
 # Install locally
-> npm install go-ipfs
+> npm install ipfs-cluster-follow
 > ./node_modules/.bin/ipfs
-ipfs version v0.7.0
+ipfs-cluster-follow version v0.7.0
 ```
 
 ## Usage
 
 This module downloads Kubo (go-ipfs) binaries from https://dist.ipfs.tech into your project.
 
-It will download the go-ipfs version that matches the npm version of this module. So depending on `go-ipfs@0.7.0` will install `go-ipfs v0.7.0` for your current system architecture, in to your project at `node_modules/go-ipfs/go-ipfs/ipfs` and additional symlink to it at `node_modules/go-ipfs/bin/ipfs`.
+It will download the ipfs-cluster-follow version that matches the npm version of this module. So depending on `go-ipfs@0.7.0` will install `go-ipfs v0.7.0` for your current system architecture, in to your project at `node_modules/go-ipfs/go-ipfs/ipfs` and additional symlink to it at `node_modules/go-ipfs/bin/ipfs`.
 
 After downloading you can find out the path of the installed binary by calling the `path` function exported by this module:
 

@@ -1,17 +1,17 @@
 'use strict'
 
 /*
-  Download go-ipfs distribution package for desired version, platform and architecture,
+  Download ipfs-cluster-follow distribution package for desired version, platform and architecture,
   and unpack it to a desired output directory.
 
   API:
     download(<version>, <platform>, <arch>, <outputPath>)
 
   Defaults:
-    go-ipfs version: value in package.json/go-ipfs/version
-    go-ipfs platform: the platform this program is run from
-    go-ipfs architecture: the architecture of the hardware this program is run from
-    go-ipfs install path: './go-ipfs'
+    ipfs-cluster-follow version: value in package.json/ipfs-cluster-follow/version
+    ipfs-cluster-follow platform: the platform this program is run from
+    ipfs-cluster-follow architecture: the architecture of the hardware this program is run from
+    ipfs-cluster-follow install path: './ipfs-cluster-follow'
 */
 const goenv = require('./go-platform')
 const gunzip = require('gunzip-maybe')
@@ -33,7 +33,7 @@ const isWin = process.platform === 'win32'
  * @param {string} url
  */
 async function cachingFetchAndVerify (url) {
-  const cacheDir = process.env.NPM_GO_IPFS_CACHE || cachedir('npm-go-ipfs')
+  const cacheDir = process.env.NPM_GO_IPFS_CACHE || cachedir('npm-ipfs-cluster-follow')
   const filename = url.split('/').pop()
 
   if (!filename) {
@@ -112,7 +112,7 @@ function unpack (url, installPath, stream) {
  * @param {string} [installPath]
  */
 function cleanArguments (version, platform, arch, installPath) {
-  const conf = pkgConf.sync('go-ipfs', {
+  const conf = pkgConf.sync('ipfs-cluster-follow', {
     cwd: process.env.INIT_CWD || process.cwd(),
     defaults: {
       version: 'v' + pkg.version.replace(/-[0-9]+/, ''),
@@ -134,8 +134,8 @@ function cleanArguments (version, platform, arch, installPath) {
  * @param {string} distUrl
  */
 async function ensureVersion (version, distUrl) {
-  console.info(`${distUrl}/go-ipfs/versions`)
-  const versions = (await got(`${distUrl}/go-ipfs/versions`).text()).trim().split('\n')
+  console.info(`${distUrl}/ipfs-cluster-follow/versions`)
+  const versions = (await got(`${distUrl}/ipfs-cluster-follow/versions`).text()).trim().split('\n')
 
   if (versions.indexOf(version) === -1) {
     throw new Error(`Version '${version}' not available`)
@@ -151,7 +151,7 @@ async function ensureVersion (version, distUrl) {
 async function getDownloadURL (version, platform, arch, distUrl) {
   await ensureVersion(version, distUrl)
 
-  const data = await got(`${distUrl}/go-ipfs/${version}/dist.json`).json()
+  const data = await got(`${distUrl}/ipfs-cluster-follow/${version}/dist.json`).json()
 
   if (!data.platforms[platform]) {
     throw new Error(`No binary available for platform '${platform}'`)
@@ -162,7 +162,7 @@ async function getDownloadURL (version, platform, arch, distUrl) {
   }
 
   const link = data.platforms[platform].archs[arch].link
-  return `${distUrl}/go-ipfs/${version}${link}`
+  return `${distUrl}/ipfs-cluster-follow/${version}${link}`
 }
 
 /**
@@ -180,7 +180,7 @@ async function download ({ version, platform, arch, installPath, distUrl }) {
   await unpack(url, installPath, data)
   console.info(`Unpacked ${installPath}`)
 
-  return path.join(installPath, 'go-ipfs', `ipfs${platform === 'windows' ? '.exe' : ''}`)
+  return path.join(installPath, 'ipfs-cluster-follow', `ipfs${platform === 'windows' ? '.exe' : ''}`)
 }
 
 /**
@@ -196,7 +196,7 @@ async function link ({ depBin, version }) {
   }
 
   if (!fs.existsSync(depBin)) {
-    throw new Error('ipfs binary not found. maybe go-ipfs did not install correctly?')
+    throw new Error('ipfs binary not found. maybe ipfs-cluster-follow did not install correctly?')
   }
 
   if (fs.existsSync(localBin)) {
@@ -208,10 +208,10 @@ async function link ({ depBin, version }) {
 
   if (isWin) {
     // On Windows, update the shortcut file to use the .exe
-    const cmdFile = path.join(__dirname, '..', '..', 'ipfs.cmd')
+    const cmdFile = path.join(__dirname, '..', '..', 'ipfs-cluster-follow.cmd')
 
     fs.writeFileSync(cmdFile, `@ECHO OFF
-  "%~dp0\\node_modules\\go-ipfs\\bin\\ipfs.exe" %*`)
+  "%~dp0\\node_modules\\ipfs-cluster-follow\\bin\\ipfs-cluster-follow.exe" %*`)
   }
 
   // test ipfs installed correctly.
@@ -221,10 +221,10 @@ async function link ({ depBin, version }) {
   }
 
   var outstr = result.stdout.toString()
-  var m = /ipfs version ([^\n]+)\n/.exec(outstr)
+  var m = /ipfs-cluster-follow version ([^\n]+)\n/.exec(outstr)
 
   if (!m) {
-    throw new Error('Could not determine IPFS version')
+    throw new Error('Could not determine IPFS Cluster version')
   }
 
   var actualVersion = `v${m[1]}`
