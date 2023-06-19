@@ -2,7 +2,7 @@ var test = require('tape')
 var fs = require('fs')
 var path = require('path')
 var cp = require('child_process')
-var ipfs = path.join(__dirname, '..', 'bin', 'ipfs')
+var ipfs = path.join(__dirname, '..', 'bin', 'ipfs-cluster-follow')
 
 test('ensure ipfs-cluster-follow bin path exists', function (t) {
   t.plan(4)
