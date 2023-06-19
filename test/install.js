@@ -13,7 +13,7 @@ const expectedVersion = require('../package.json').version
 async function clean () {
   await fs.remove(path.join(__dirname, 'fixtures', 'example-project', 'node_modules'))
   await fs.remove(path.join(__dirname, 'fixtures', 'example-project', 'package-lock.json'))
-  await fs.remove(cachedir('npm-ipfs-cluster-follow'))
+  await fs.remove(cachedir('ipfs-cluster-follow'))
 }
 
 test.onFinish(clean)
@@ -33,7 +33,7 @@ test('Ensure ipfs-cluster-follow defined in package.json is fetched on dependenc
   t.ok(expectedVersion === fetchedVersion, `package.json versions match '${expectedVersion}'`)
 
   // confirm binary is correct
-  const binary = path.join(exampleProjectRoot, 'node_modules', 'ipfs-cluster-follow', 'bin', 'ipfs')
+  const binary = path.join(exampleProjectRoot, 'node_modules', 'ipfs-cluster-follow', 'bin', 'ipfs-cluster-follow')
   const versionRes = execa.sync(binary, ['--version'], {
     cwd: exampleProjectRoot
   })

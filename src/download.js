@@ -33,7 +33,7 @@ const isWin = process.platform === 'win32'
  * @param {string} url
  */
 async function cachingFetchAndVerify (url) {
-  const cacheDir = process.env.NPM_GO_IPFS_CACHE || cachedir('npm-ipfs-cluster-follow')
+  const cacheDir = process.env.NPM_GO_IPFS_CACHE || cachedir('ipfs-cluster-follow')
   const filename = url.split('/').pop()
 
   if (!filename) {
@@ -180,7 +180,7 @@ async function download ({ version, platform, arch, installPath, distUrl }) {
   await unpack(url, installPath, data)
   console.info(`Unpacked ${installPath}`)
 
-  return path.join(installPath, 'ipfs-cluster-follow', `ipfs${platform === 'windows' ? '.exe' : ''}`)
+  return path.join(installPath, 'ipfs-cluster-follow', `ipfs-cluster-follow${platform === 'windows' ? '.exe' : ''}`)
 }
 
 /**
@@ -189,7 +189,7 @@ async function download ({ version, platform, arch, installPath, distUrl }) {
  * @param {string} options.version
  */
 async function link ({ depBin, version }) {
-  let localBin = path.resolve(path.join(__dirname, '..', 'bin', 'ipfs'))
+  let localBin = path.resolve(path.join(__dirname, '..', 'bin', 'ipfs-cluster-follow'))
 
   if (isWin) {
     localBin += '.exe'
