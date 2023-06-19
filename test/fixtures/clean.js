@@ -6,5 +6,5 @@ const execa = require('execa')
 
 module.exports = async function clean () {
   await fs.remove(path.resolve(__dirname, '../../ipfs-cluster-follow'))
-  await execa('git', ['checkout', '--', path.resolve(__dirname, '../../bin/ipfs')])
+  await execa('git', ['checkout', '--', path.resolve(__dirname, '../../bin/ipfs-cluster-follow')])
 }
