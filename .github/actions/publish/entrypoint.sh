@@ -49,8 +49,8 @@ if [[ "$CURRENT" != "$LATEST" ]]; then
   git rev-parse --abbrev-ref HEAD
   git checkout master
 
-  # post-install rewrites bin/ipfs so undo that change
-  git checkout -- bin/ipfs
+  # post-install rewrites bin/ipfs-cluster-follow so undo that change
+  git checkout -- bin/ipfs-cluster-follow
 
   # Set sensible commit info
   git config --global user.name "${GITHUB_ACTOR}"
