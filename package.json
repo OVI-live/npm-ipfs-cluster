@@ -12,7 +12,7 @@
   },
   "pre-commit": "restore-bin",
   "bin": {
-    "ipfs": "bin/ipfs-cluster-follow"
+    "ipfs-cluster-follow": "bin/ipfs-cluster-follow"
   },
   "files": [
     "bin",
