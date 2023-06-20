@@ -26,18 +26,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ipfs/npm-go-ipfs.git"
+    "url": "git+https://github.com/micemedia/npm-ipfs-cluster.git"
   },
   "keywords": [
     "ipfs",
     "install"
   ],
-  "author": "Protocol Labs, Inc.",
+  "author": "MICEMedia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ipfs/npm-go-ipfs/issues"
+    "url": "https://github.com/micemedia/npm-ipfs-cluster/issues"
   },
-  "homepage": "https://github.com/ipfs/npm-go-ipfs",
+  "homepage": "https://github.com/micemedia/npm-ipfs-cluster",
   "types": "./dist/src/types.d.ts",
   "devDependencies": {
     "@types/got": "^9.6.12",
