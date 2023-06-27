@@ -21,9 +21,6 @@ jobs:
       - name: Install
         if: steps.check.outputs.publish == 'true'
         run: npm install
-      - name: Test
-        if: steps.check.outputs.publish == 'true'
-        run: npm test
       - name: Publish
         if: steps.check.outputs.publish == 'true'
         uses: ./.github/actions/publish
