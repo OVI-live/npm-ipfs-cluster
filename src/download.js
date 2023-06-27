@@ -33,7 +33,7 @@ const isWin = process.platform === 'win32'
  * @param {string} url
  */
 async function cachingFetchAndVerify (url) {
-  const cacheDir = process.env.NPM_GO_IPFS_CACHE || cachedir('ipfs-cluster-follow')
+  const cacheDir = process.env.NPM_GO_IPFS_CACHE || cachedir('npm-ipfs-cluster')
   const filename = url.split('/').pop()
 
   if (!filename) {
