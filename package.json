@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "node src/post-install.js",
     "restore-bin": "git reset -- bin/ipfs-cluster-follow && git checkout -- bin/ipfs-cluster-follow",
+    "test": "tape test/*.js | tap-spec",
     "lint": "tsc --noEmit && standard",
     "prepublishOnly": "tsc"
   },
