@@ -1,4 +1,4 @@
-name: 'Check for go-ipfs-cluster-follow release'
+name: 'Check for ipfs-cluster-follow release'
 runs:
   using: 'docker'
   image: 'Dockerfile'
