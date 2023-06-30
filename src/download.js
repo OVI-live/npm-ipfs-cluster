@@ -211,7 +211,7 @@ async function link ({ depBin, version }) {
     const cmdFile = path.join(__dirname, '..', '..', 'ipfs-cluster-follow.cmd')
 
     fs.writeFileSync(cmdFile, `@ECHO OFF
-  "%~dp0\\node_modules\\ipfs-cluster-follow\\bin\\ipfs-cluster-follow.exe" %*`)
+  "%~dp0\\node_modules\\npm-cluster-follow\\bin\\ipfs-cluster-follow.exe" %*`)
   }
 
   // test ipfs installed correctly.
